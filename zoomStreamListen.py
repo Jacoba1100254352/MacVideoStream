@@ -1,12 +1,7 @@
 # For Mac
-import cv2
 import numpy as np
-import io
-import socket
-import struct
-import time
+import cv2, io, socket, struct, time, CoreMedia
 from Quartz import CoreVideo
-import CoreMedia
 
 IMG_W = 1280
 IMG_H = 720
