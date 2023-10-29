@@ -31,12 +31,19 @@ try:
 
         image = np.array(bytearray(image_stream.read()), dtype=np.uint8)
         frame = cv2.imdecode(image, cv2.IMREAD_COLOR)
-        # Resize the frame to the desired size for the virtual camera
-        frame = cv2.resize(frame, (1280, 720))
+        # Ensure the frame is not empty before attempting to resize it
+        if frame is not None:
+            # Resize the frame to the desired size for the virtual camera
+            frame = cv2.resize(frame, (1280, 720))
+        else:
+            break
+
         # Convert the frame to a format suitable for OS X's AVFoundation framework
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA)
-        # Create a window to display the virtual camera
-        cv2.imshow("Virtual Camera", frame)
+
+        # Output the frame to the virtual camera
+        # [Code to create a virtual camera using the frame and the AVFoundation framework would go here, but it was not provided in the original code]
+
         # Sleep for a short amount of time to avoid consuming too much CPU resources
         cv2.waitKey(1)
 finally:
